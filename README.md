@@ -1,5 +1,5 @@
 # schoolvid19
-schoolvid 19 is a tracker for schools during the covid-19 pandemic.
+schoolvid 19 is a tracker for schools during the covid-19 pandemic made by abhishekshahane and delivey.
 
 # installation
 1. install Python3
