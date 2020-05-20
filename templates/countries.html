@@ -6,4 +6,12 @@
 
 {% block body %}
 
+<form action="/countries" method="POST">
+    <center><input name="cName" placeholder="Country Name"/></center>
+
+    <ul>
+        <center>{{ result }}</center>
+    </ul>
+</form>
+
 {% endblock %}
