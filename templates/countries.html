@@ -12,9 +12,8 @@
         <center>{{ result }}</center>
     </ul>
 </form>
-
-<h4><center>{% for i in countries %}</center></h4>
-{{ i }}
+{% for i in countries %}
+<h4><center>{{ i }}</center></h4>
 {% endfor %}
 
 {% endblock %}
