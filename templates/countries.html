@@ -8,10 +8,13 @@
 
 <form action="/countries" method="POST">
     <center><input name="cName" placeholder="Country Name"/></center>
-
     <ul>
         <center>{{ result }}</center>
     </ul>
 </form>
+
+<h4><center>{% for i in countries %}</center></h4>
+{{ i }}
+{% endfor %}
 
 {% endblock %}

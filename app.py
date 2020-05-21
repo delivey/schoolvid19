@@ -13,12 +13,12 @@ def country(cnt):
 
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
+    connection = sqlite3.connect('countries.db') # connects to db
+    db = connection.cursor() # creates the cursor for db connection
     if request.method == "GET":
-        return render_template("countries.html")
+        countries = db.execute("SELECT country FROM names").fetchall()
+        return render_template("countries.html", countries=countries)
     else:
-        connection = sqlite3.connect('countries.db') # connects to db
-        db = connection.cursor() # creates the cursor for db connection
-
         search = request.form.get("cName")
         result = db.execute("SELECT country FROM names WHERE country=(?)", (search,)).fetchone()[0]
         connection.commit()
