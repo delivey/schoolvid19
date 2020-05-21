@@ -7,21 +7,24 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav role="navigation">
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <a href="#"><li>Home</li></a>
-            <a href="#"><li>About</li></a>
-            <a href="#"><li>Info</li></a>
-            <a href="/countries"><li>Countries</li></a>
-            <a href="#" target="_blank"><li>Show me more</li></a>
-          </ul>
-        </div>
-      </nav>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/countries">Countries</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Open</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
 {% block body %}
 
 {% endblock %}
