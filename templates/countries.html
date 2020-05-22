@@ -4,21 +4,23 @@
     Countries
 {% endblock %}
 
+<link href="style.css" rel="stylesheet">
+
 {% block body %}
 
 <form action="/countries" method="POST" id="search">
-    <h1><center><input name="cName" placeholder="Country Name" required/></center></h1>
+    <h1><center><input name="cName" placeholder="Country Name" class="loln"></center></h1>
 </form>
-<center><button type="submit" form="search" value="Search">Search</button></center>
+<center><button type="submit" form="search" value="Search" id="g">Search</button></center>
 
 <h2><center><th>Countries</th></center></h2>
 <tr>
     {% for i in results %}
-    <h1><a href="/country/{{ i[0] }}"><center>{{ i[0] }}</center></a></h1>
+    <h1><a href="/country/{{ i[0] }}" class="nav-link"><center>{{ i[0] }}</center></a></h1>
     {% endfor %}
 </tr>
 {% for i in countries %}
-<h3><a href="/country/{{ i[0] }}"><tr><center>{{ i[0] }}</tr></center></a></h3>
+<h3><a href="/country/{{ i[0] }}" class="nav-link"><tr><center>{{ i[0] }}</tr></center></a></h3>
 {% endfor %}
 
 {% endblock %}
