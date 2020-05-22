@@ -20,6 +20,6 @@ def countries():
         return render_template("countries.html", countries=countries)
     else:
         search = request.form.get("cName")
-        result = db.execute("SELECT country FROM names WHERE country=(?)", (search,)).fetchone()[0]
+        results = db.execute("SELECT country FROM names WHERE country LIKE ?", ('%'+search+'%',)).fetchall()
         connection.commit()
-        return render_template("countries.html", result=result)
+        return render_template("countries.html", results=results)

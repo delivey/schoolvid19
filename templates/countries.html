@@ -7,13 +7,15 @@
 {% block body %}
 
 <form action="/countries" method="POST" id="search">
-    <center><input name="cName" placeholder="Country Name" required/></center>
+    <h1><center><input name="cName" placeholder="Country Name" required/></center></h1>
 </form>
 <center><button type="submit" form="search" value="Search">Search</button></center>
 
 <h2><center><th>Countries</th></center></h2>
 <tr>
-    <h1><a href="/country/{{ result }}"><center>{{ result }}</center></a></h1>
+    {% for i in results %}
+    <h1><a href="/country/{{ i[0] }}"><center>{{ i[0] }}</center></a></h1>
+    {% endfor %}
 </tr>
 {% for i in countries %}
 <h3><a href="/country/{{ i[0] }}"><tr><center>{{ i[0] }}</tr></center></a></h3>
