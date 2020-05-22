@@ -1,6 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
-  background-color: #FA8072;
+  background-color: #7FDBFF;
 }
 
 .sidenav {
@@ -26,7 +26,7 @@ body {
 }
 
 .sidenav a:hover {
-  color: aqua;
+  color: tomato;
 }
 
 .sidenav .closebtn {
@@ -43,9 +43,32 @@ body {
 }
 #g
 {
-  background-color: yellow;
+  background-color: white;
+  border-radius: 10px;
+  padding: 6px;
+
 }
 .loln
 {
   height: 25px;
+}
+a.nav-link:link
+{
+  color: #F5F5DC;
+  text-decoration: none;
+}
+a.nav-link:visited
+{
+  color: green;
+  text-decoration: none;
+}
+a.nav-link:hover
+{
+  color: white;
+  text-decoration: none;
+}
+a.nav-link:active
+{
+  color: #F5F5DC;
+  text-decoration: none;
 }
