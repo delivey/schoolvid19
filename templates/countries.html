@@ -16,11 +16,11 @@
 <h2><center><th>Countries</th></center></h2>
 <tr>
     {% for i in results %}
-    <h1><a href="/country/{{ i[0] }}" class="nav-link"><center>{{ i[0] }}</center></a></h1>
+    <h2><a href="/country/{{ i[0] }}" class="nav-link"><center>{{ i[0] }}</center></a></h2>
     {% endfor %}
 </tr>
 {% for i in countries %}
-<h3><a href="/country/{{ i[0] }}" class="nav-link"><tr><center>{{ i[0] }}</tr></center></a></h3>
+<h2><a href="/country/{{ i[0] }}" class="nav-link"><tr><center>{{ i[0] }}</tr></center></a></h2>
 {% endfor %}
 
 {% endblock %}
