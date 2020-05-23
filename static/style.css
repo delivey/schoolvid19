@@ -72,3 +72,8 @@ a.nav-link:active
   color: #F5F5DC;
   text-decoration: none;
 }
+.image
+{
+  height: 60px;
+  padding-left: 35px;
+}
