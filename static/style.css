@@ -1,6 +1,7 @@
 body {
   font-family: "Lato", sans-serif;
-  background-color: #023e7d;
+  background-color: #0059b8;
+  color: white
 }
 
 .sidenav {
@@ -20,13 +21,13 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: tomato;
+  color: rgb(87, 87, 87);
 }
 
 .sidenav .closebtn {
@@ -59,12 +60,12 @@ a.nav-link:link
 }
 a.nav-link:visited
 {
-  color: green;
+  color: rgb(173, 173, 173);
   text-decoration: none;
 }
 a.nav-link:hover
 {
-  color: white;
+  color: rgb(173, 173, 173);
   text-decoration: none;
 }
 a.nav-link:active
