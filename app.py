@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request
 import sqlite3
+import csv
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -9,6 +10,11 @@ def index():
 
 @app.route("/country/<cnt>")
 def country(cnt):
+    with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
+        reader = csv.reader(csvFile)
+        next(reader)
+        for row in reversed(list(reader)):
+            print(row[0])
     return render_template("country.html", cnt=cnt)
 
 @app.route("/countries", methods=["GET", "POST"])
