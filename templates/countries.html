@@ -3,16 +3,17 @@
 <link href="style.css" rel="stylesheet"> {% block body %}
 
 <div class="searchdiv">
-    <form action="/countries" method="POST" id="search">
-        <h1>
+    <div class="flexparent">
+        <form action="/countries" method="POST" id="search">
             <div>
                 <input name="cName" placeholder="Country Name">
             </div>
-        </h1>
-    </form>
-    <div>
-        <button type="submit" form="search" value="Search">Search</button>
+        </form>
+        <div>
+            <button type="submit" form="search" value="Search">Search</button>
+        </div>
     </div>
+    <h2 class="flipheader"></h2>
 </div>
 
 <div class="countries">

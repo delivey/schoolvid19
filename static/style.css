@@ -1,3 +1,48 @@
+@keyframes flipheader {
+    0% {
+        content: "stay up to date";
+        opacity: 0;
+        top: -10px;
+    }
+    10% {
+        opacity: 1;
+        top: 0px;
+    }
+    25% {
+        opacity: 0;
+        top: 10px;
+        content: "stay up to date";
+    }
+    30% {
+        content: "find cases near you";
+        opacity: 0;
+        top: -10px;
+    }
+    40% {
+        opacity: 1;
+        top: 0px;
+    }
+    55% {
+        opacity: 0;
+        top: 10px;
+        content: "find cases near you";
+    }
+    60% {
+        content: "learn how others are tackling the pandemic";
+        opacity: 0;
+        top: -10px;
+    }
+    70% {
+        opacity: 1;
+        top: 0px;
+    }
+    85% {
+        opacity: 0;
+        top: 10px;
+        content: "learn how others are tackling the pandemic";
+    }
+}
+
 body {
     font-family: "Lato", sans-serif;
     background-color: #0059b8;
@@ -108,6 +153,8 @@ button:hover {
 
 .image {
     height: 60px;
+    padding-bottom: 25%;
+    user-select: none;
 }
 
 
@@ -115,18 +162,38 @@ button:hover {
 
 .searchdiv {
     background: white;
+    box-shadow: 0 2rem 3rem 0 rgba(58, 59, 69, .3);
+    width: 80%;
     padding: 20px;
+    margin: auto;
+}
+
+.flexparent {
     margin: auto;
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2rem 3rem 0 rgba(58, 59, 69, .3);
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
-.searchdiv div {
+.flexparent div {
     width: 20%;
     padding: 0px 20px;
+}
+
+.flipheader::after {
+    text-align: center;
+    text-transform: uppercase;
+    animation: flipheader 10s infinite;
+    display: block;
+    content: "stay up to date";
+    transition: all 0.2s;
+    position: relative;
+    opacity: 0;
+    color: black;
+    text-align: center;
 }
 
 .countries {
