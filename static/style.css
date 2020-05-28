@@ -1,80 +1,136 @@
 body {
-  font-family: "Lato", sans-serif;
-  background-color: #0059b8;
-  color: white
+    font-family: "Lato", sans-serif;
+    background-color: #0059b8;
+    color: white
+}
+
+input {
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #0f8ee0;
+    transition: all 0.2s ease-in-out;
+}
+
+input:hover {
+    border-bottom: 2px solid #0059b8;
+}
+
+input:focus {
+    border-bottom: 2px solid #0059b8;
+}
+
+button {
+    border: none;
+    padding: 16px 40px;
+    border-radius: 30px;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+}
+
+button:hover {
+    background: #0f8ee0;
+    color: white;
 }
 
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #0f8ee0;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #0f8ee0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 2rem 3rem 0 rgba(58, 59, 69, .3);
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.2s;
 }
 
 .sidenav a:hover {
-  color: rgb(87, 87, 87);
+    color: rgb(87, 87, 87);
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav a {
+        font-size: 18px;
+    }
 }
-#g
-{
-  background-color: white;
-  border-radius: 10px;
-  padding: 6px;
 
+.nav-link:link {
+    color: #F5F5DC;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: block;
+    text-align: center;
+    font-size: 19px;
+    margin: auto;
+    width: 33%;
+    padding: 2px;
 }
-.loln
-{
-  height: 25px;
+
+.nav-link:visited {
+    color: rgb(173, 173, 173);
+    text-decoration: none;
 }
-a.nav-link:link
-{
-  color: #F5F5DC;
-  text-decoration: none;
+
+.nav-link:hover {
+    color: rgb(173, 173, 173);
+    text-decoration: none;
 }
-a.nav-link:visited
-{
-  color: rgb(173, 173, 173);
-  text-decoration: none;
+
+.nav-link:active {
+    color: #F5F5DC;
+    text-decoration: none;
 }
-a.nav-link:hover
-{
-  color: rgb(173, 173, 173);
-  text-decoration: none;
+
+.image {
+    height: 60px;
 }
-a.nav-link:active
-{
-  color: #F5F5DC;
-  text-decoration: none;
+
+
+/*countries*/
+
+.searchdiv {
+    background: white;
+    padding: 20px;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2rem 3rem 0 rgba(58, 59, 69, .3);
 }
-.image
-{
-  height: 60px;
-  padding-left: 35px;
+
+.searchdiv div {
+    width: 20%;
+    padding: 0px 20px;
+}
+
+.countries {
+    margin: 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
 }

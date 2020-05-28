@@ -1,26 +1,27 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} Countries {% endblock %}
 
-{% block title %}
-    Countries
-{% endblock %}
+<link href="style.css" rel="stylesheet"> {% block body %}
 
-<link href="style.css" rel="stylesheet">
+<div class="searchdiv">
+    <form action="/countries" method="POST" id="search">
+        <h1>
+            <div>
+                <input name="cName" placeholder="Country Name">
+            </div>
+        </h1>
+    </form>
+    <div>
+        <button type="submit" form="search" value="Search">Search</button>
+    </div>
+</div>
 
-{% block body %}
+<div class="countries">
 
-<form action="/countries" method="POST" id="search">
-    <h1><center><input name="cName" placeholder="Country Name" class="loln"></center></h1>
-</form>
-<center><button type="submit" form="search" value="Search" id="g">Search</button></center>
-
-<h2><center><th>Countries</th></center></h2>
-<tr>
     {% for i in results %}
-    <h2><a href="/country/{{ i[0] }}" class="nav-link"><center>{{ i[0] }}</center></a></h2>
-    {% endfor %}
-</tr>
-{% for i in countries %}
-<h2><a href="/country/{{ i[0] }}" class="nav-link"><tr><center>{{ i[0] }}</tr></center></a></h2>
-{% endfor %}
+    <a href="/country/{{ i[0] }}" class="nav-link">
+            {{ i[0] }}
+        </a> {% endfor %} {% for i in countries %}
+    <a href="/country/{{ i[0] }}" class="nav-link">
+                {{ i[0] }}
 
-{% endblock %}
+        </a> {% endfor %}</div> {% endblock %}
