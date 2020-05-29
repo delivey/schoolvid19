@@ -17,15 +17,6 @@ def country(cnt):
     connection.commit()
     return render_template("country.html", cnt=cnt, status=status, cases=cases)
 
-    """with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
-        reader = csv.reader(csvFile)
-        for row in reader:
-            countryName = row[2]
-            countryStatus = row[3] # code for updating
-            db.execute("UPDATE stats SET status=(?) WHERE name=(?)", (countryStatus, countryName))
-            print(f"Inserting {countryStatus}, {countryName}")
-        return redirect("/")"""
-
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
     connection = sqlite3.connect('countries.db') # connects to db
@@ -51,6 +42,19 @@ def case_updating():
             db.execute("UPDATE stats SET cases=(?) WHERE name LIKE (?)", (countryCases, '%'+countryName+'%'))
             connection.commit()
             print(f"Inserting {countryCases}, {countryName}")
+        return redirect("/")
+
+@app.route("/update/status", methods=["GET"])
+def status_updating():
+    connection = sqlite3.connect('countries.db') # connects to db
+    db = connection.cursor() # creates the cursor for db connection
+    with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
+        reader = csv.reader(csvFile)
+        for row in reader:
+            countryName = row[2]
+            countryStatus = row[3] # code for updating
+            db.execute("UPDATE stats SET status=(?) WHERE name LIKE (?)", (countryStatus, '%'+countryName+'%'))
+            print(f"Updating {countryStatus}, {countryName}")
         return redirect("/")
 
 # available to run if double click the file
