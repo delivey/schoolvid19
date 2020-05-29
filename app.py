@@ -34,7 +34,7 @@ def countries():
 def case_updating():
     connection = sqlite3.connect('countries.db') # connects to db
     db = connection.cursor() # creates the cursor for db connection
-    with open('WHO-COVID-19-global-data.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
+    with open('WHO-COVID-19-global-data.csv', newline='') as csvFile: # link for file https://covid19.who.int/info
         reader = csv.reader(csvFile)
         for row in reader:
             countryName = row[2]
