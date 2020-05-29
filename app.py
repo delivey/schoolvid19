@@ -38,6 +38,20 @@ def countries():
         connection.commit()
         return render_template("countries.html", results=results)
 
+@app.route("/update/cases", methods=["GET"])
+def case_updating():
+    connection = sqlite3.connect('countries.db') # connects to db
+    db = connection.cursor() # creates the cursor for db connection
+    with open('WHO-COVID-19-global-data.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
+        reader = csv.reader(csvFile)
+        for row in reader:
+            countryName = row[2]
+            countryCases = row[5] # code for updating
+            db.execute("UPDATE stats SET cases=(?) WHERE name LIKE (?)", (countryCases, '%'+countryName+'%'))
+            connection.commit()
+            print(f"Inserting {countryCases}, {countryName}")
+        return redirect("/")
+
 # available to run if double click the file
 if __name__ == "__main__":
     app.run(debug=True)
