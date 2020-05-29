@@ -13,8 +13,9 @@ def country(cnt):
     connection = sqlite3.connect('countries.db') # connects to db
     db = connection.cursor() # creates the cursor for db connection
     status = db.execute("SELECT status FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+    cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     connection.commit()
-    return render_template("country.html", cnt=cnt, status=status)
+    return render_template("country.html", cnt=cnt, status=status, cases=cases)
 
     """with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
         reader = csv.reader(csvFile)
