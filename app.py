@@ -18,10 +18,12 @@ def country(cnt):
 
     """with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
         reader = csv.reader(csvFile)
-        next(reader)
-        for row in reversed(list(reader)):
+        for row in reader:
             countryName = row[2]
-            countryStatus = row[3]""" # code for selecting
+            countryStatus = row[3] # code for updating
+            db.execute("UPDATE stats SET status=(?) WHERE name=(?)", (countryStatus, countryName))
+            print(f"Inserting {countryStatus}, {countryName}")
+        return redirect("/")"""
 
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
