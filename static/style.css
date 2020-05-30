@@ -220,3 +220,7 @@ td
 {
     color: black;
 }
+#vertical tbody, #vertical thead
+{
+    display: inline-block;
+}
