@@ -8,15 +8,17 @@ Table For Education Status of Countries
 
 {% block body %}
 <h1><center>Table for {{cnt}}</center></h1>
+<center>
+  <table id="vertical">
+    <tr>
+      <th><center>Cases in {{cnt}}</center></th>
+      <td><center>{{cases[0]}}</center></td>
+    <tr>
+    <tr>
+      <th><center>Status in {{cnt}} (for schools)</center></th>
+      <td><center>{{status[0]}}</center></td>
+    </tr>
 
-<table>
-  <tr>
-    <th><center>Cases in {{cnt}}</center></th>
-    <th><center>Status in {{cnt}} (for schools)</center></th>
-  </tr>
-  <tr>
-    <td><center>{{cases[0]}}</center></td>
-    <td><center>{{status[0]}}</center></td>
-  </tr>
-</table>
+  </table>
+</center>
 {% endblock %}
