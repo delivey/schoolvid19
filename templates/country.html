@@ -4,9 +4,19 @@
 {% block title %}
 Table For Education Status of Countries
 {% endblock %}
-
+<link href="style.css" rel="stylesheet">
 
 {% block body %}
-<h1>Remote Learning: {{ status[0] }}</h1>
-<h1>Total cases: {{ cases[0] }}</h1>
+<h1><center>Table for {{cnt}}</center></h1>
+
+<table>
+  <tr>
+    <th>Cases in {{cnt}}</th>
+    <th>Status in {{cnt}} (for schools)</th>
+  </tr>
+  <tr>
+    <td>{{cases[0]}}</td>
+    <td>{{status[0]}}</td>
+  </tr>
+</table>
 {% endblock %}
