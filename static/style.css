@@ -218,9 +218,15 @@ tr:nth-child(even) {
 }
 td
 {
-    color: black;
+    color: white;
 }
 #vertical tbody, #vertical thead
 {
     display: inline-block;
 }
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {text-align:center;}
