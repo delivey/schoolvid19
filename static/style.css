@@ -232,6 +232,11 @@ button:hover {
     width: 90%;
     box-shadow: rgba(58, 59, 69, 0.15) 0px 0px 48px 0px;
     border: 1.5px solid rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.templatetable:hover {
+    box-shadow: rgba(58, 59, 69, 0.35) 0px 0px 70px 6px;
 }
 
 .templatetable tr {
