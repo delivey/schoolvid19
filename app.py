@@ -7,6 +7,10 @@ app = Flask(__name__, static_url_path='/static')
 @app.route("/")
 def index():
     return render_template("index.html")
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 
 @app.route("/country/<cnt>")
 def country(cnt):
@@ -60,4 +64,3 @@ def status_updating():
 # available to run if double click the file
 if __name__ == "__main__":
     app.run(debug=True)
-
