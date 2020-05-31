@@ -1,32 +1,30 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} Table For Education Status of Countries {% endblock %} {% block body %}
 
 
-{% block title %}
-Table For Education Status of Countries
-{% endblock %}
-<link href="style.css" rel="stylesheet">
+<div class="templatediv">
+    <h1 class="templatetitle">{{cnt}}</h1>
+    <hr />
 
-{% block body %}
-<h1><center>Table for {{cnt}}</center></h1>
-<center>
-  <table id="vertical" class="center">
-    <tr>
-      <th><center>Cases in {{cnt}}</center></th>
-      <td><center>{{cases[0]}}</center></td>
-    <tr>
-    <tr>
-      <th><center>Status in {{cnt}} (for schools)</center></th>
-      <td><center>{{status[0]}}</center></td>
-    </tr>
-    <tr>
-      <th><center>Tools used in {{cnt}} for education</center></th>
-      <td><center>Coming soon!</center></td>
-    </tr>
-    <tr>
-      <th><center>Time updated (We are getting live updates)</center></th>
-      <td><center>Coming soon!</center></td>
-    </tr>
-
-  </table>
-</center>
+    <table class="templatetable">
+        <tr>
+            <th>Country Info</th>
+        </tr>
+        <tr>
+            <td>Cases in {{cnt}}:</td>
+            <td>{{cases[0]}}</td>
+        </tr>
+        <tr>
+            <td>Learning status:</td>
+            <td>{{status[0]}}</td>
+        </tr>
+        <tr>
+            <td>Education tools:</td>
+            <td>(tools)</td>
+        </tr>
+        <tr>
+            <td>Updated:</td>
+            <td># seconds ago</td>
+        </tr>
+    </table>
+</div>
 {% endblock %}

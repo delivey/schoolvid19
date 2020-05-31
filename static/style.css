@@ -201,37 +201,71 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
 }
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+
+
+/*country*/
+
+.templatediv {
+    background: white;
+    box-shadow: 0 2rem 3rem 0 rgba(58, 59, 69, .3);
+    width: 80%;
+    padding: 20px;
+    margin: auto;
 }
 
-td,th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.templatetitle {
+    text-align: center;
+    color: black;
+    margin-bottom: 6px;
 }
 
-tr:nth-child(even), tr:nth-child(odd) 
-{
-  background-color: #dddddd;
+.templatediv hr {
+    width: 10%;
+    margin: auto;
+    height: 4px;
+    background-color: #0f8ee0;
+    border: none;
 }
-td
-{
-    color: white;
+
+.templatetable {
+    margin: 8px auto;
+    width: 90%;
+    box-shadow: rgba(58, 59, 69, 0.15) 0px 0px 48px 0px;
+    border: 1.5px solid rgba(0, 0, 0, 0.4);
 }
-#vertical tbody, #vertical thead
-{
-    display: inline-block;
+
+.templatetable tr {
+    border-collapse: collapse;
 }
-.center
-{
-    margin-left: auto;
-    margin-right: auto;
-}
-.center {text-align:center;}
-#d
-{
+
+.templatetable th {
+    height: 40px;
     background-color: #0059b8;
+    color: white;
+    font-size: 20px;
+    column-span: 1;
+}
+
+.templatetable tr:nth-child(odd) {
+    background: #f5f9fd;
+}
+
+.templatetable tr:nth-child(even) {
+    background: #ffffff;
+}
+
+.templatetable td {
+    padding: 8px;
+    margin: 8px 1%;
+    width: 48%;
+    float: left;
+    display: table;
+    font-weight: 550;
+    color: rgba(50, 50, 50);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.templatetable td:nth-child(even) {
+    float: right;
+    text-align: right;
 }
