@@ -10,6 +10,9 @@ def index():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+@app.route("/clients")
+def clients():
+    return render_template("clients.html")
 
 
 @app.route("/country/<cnt>")
