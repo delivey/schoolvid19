@@ -266,11 +266,31 @@ button:hover {
     float: left;
     display: table;
     font-weight: 550;
-    color: rgba(50, 50, 50);
     font-family: 'Ubuntu', sans-serif;
 }
 
 .templatetable td:nth-child(even) {
     float: right;
     text-align: right;
+}
+#vertical tbody, #vertical thead
+{
+    display: inline-block;
+}
+#d
+{
+    background-color: #0059b8;
+}
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.A
+{
+    color: black;
+}
+#Z
+{
+    text-align: center;
 }
