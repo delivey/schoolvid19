@@ -21,8 +21,9 @@ def country(cnt):
     db = connection.cursor() # creates the cursor for db connection
     status = db.execute("SELECT status FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+    timeUpd = db.execute("SELECT time_updated FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     connection.commit()
-    return render_template("country.html", cnt=cnt, status=status, cases=cases)
+    return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd)
 
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
@@ -44,9 +45,11 @@ def case_updating():
     with open('WHO-COVID-19-global-data.csv', newline='') as csvFile: # link for file https://covid19.who.int/info
         reader = csv.reader(csvFile)
         for row in reader:
+            lastDate = row[0]
             countryName = row[2]
             countryCases = row[5] # code for updating
             db.execute("UPDATE stats SET cases=(?) WHERE name LIKE (?)", (countryCases, '%'+countryName+'%'))
+            db.execute("UPDATE stats SET time_updated=(?) WHERE name LIKE (?)", (lastDate, '%'+countryName+'%'))
             connection.commit()
             print(f"Inserting {countryCases}, {countryName}")
         return redirect("/")
