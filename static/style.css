@@ -294,3 +294,76 @@ button:hover {
 {
     text-align: center;
 }
+.container
+{
+    background-color: white;
+}
+h1
+{
+    color: black;
+    text-align: center;
+}
+.padded
+{
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: impact;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 40px;
+
+}
+#d
+{
+    color: black;
+    font-family: impact;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+}
+.z
+{
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: impact;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 40px;
+}
+.b
+{
+    height: 90px;
+    width: 90px;
+    padding-bottom: 30px;
+}
+#side
+{
+    height: 250px;
+    width: 250px;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+#sidea
+{
+    text-align: center;
+    padding-top: 20px;
+    height: 250px;
+    width: 250px;
+}
+#sideb
+{
+    text-align: center;
+    padding-top: 20px;
+    height: 250px;
+    width: 210px;
+}
+.blacka
+{
+    color: black;
+    text-align: center;
+}
