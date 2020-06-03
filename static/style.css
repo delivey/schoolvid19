@@ -367,6 +367,24 @@ h1
     text-align: center;
 }
 
+#formparta
+{
+    text-align: center;
+    padding-bottom: 40px;
+}
+#formpartb
+{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.buttonclass
+{
+    text-align: center;
+}
+
+
+
+
 .white
 {
     color: white;
@@ -377,3 +395,4 @@ h1
 {
     text-align: center;
 }
+
