@@ -1,8 +1,43 @@
 {% extends "layout.html" %}
 {% block title %}
-    Clients
+    Polls
 {% endblock %}
 <link href="style.css" rel="stylesheet">
 {% block body %}
-<div class="powr-poll" id="d1a34e13_1591177861"></div><script src="https://www.powr.io/powr.js?platform=embed"></script>
+<<<<<<< HEAD
+<div id="formparta">
+    <label for="continents">Where are you located?</label>
+      <select name="continent" id="continent">
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Europe">Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+      </select>
+</div>
+<div id="formpartb">
+    <label for="rating">How are you liking/hating online school?</label>
+      <select name="rating" id="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+</div>
+<div class="buttonclass">
+    <button id="button" onclick="a()">Submit poll!</button>
+    <script>
+        function a()
+        {
+            alert("Your response has been submitted!");
+        }
+    </script>
+</div>
 {% endblock %}
