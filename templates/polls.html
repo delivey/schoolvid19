@@ -4,18 +4,16 @@
 {% endblock %}
 <link href="style.css" rel="stylesheet">
 {% block body %}
-
+<!Making a div for the first part of the form>
 <div id="formparta">
-    <label for="continents">Where are you located?</label>
-      <select name="continent" id="continent">
-        <option value="North America">North America</option>
-        <option value="South America">South America</option>
-        <option value="Oceania">Oceania</option>
-        <option value="Europe">Europe</option>
-        <option value="Africa">Africa</option>
-        <option value="Asia">Asia</option>
-      </select>
+    <div class="box">
+        <input type="text" placeholder="Country name" id="text">
+        <input type="submit" placeholder="Submit Country" id="submit" onclick="b()">
+    </div>
+    <div id="result">
+    </div>
 </div>
+<!Making another div for the second part of the form>
 <div id="formpartb">
     <label for="rating">How are you liking/hating online school?</label>
       <select name="rating" id="rating">
@@ -31,9 +29,17 @@
         <option value="10">10</option>
       </select>
 </div>
+<!Div for button>
 <div class="buttonclass">
+    <!Submit the poll when this button is clicked>
     <button id="button" onclick="a()">Submit poll!</button>
     <script>
+    //JS for when user clicks on the submit country button
+        let country = document.querySelector('#text').value;
+        function b(){
+            alert("Response recorded!");
+        }
+    //Some more JS for when the user clicks on the submit button
         function a()
         {
             alert("Your response has been submitted!");
@@ -41,3 +47,4 @@
     </script>
 </div>
 {% endblock %}
+
