@@ -1,30 +1,20 @@
-{% extends "layout.html" %}
-{% block title %}
-    Welcome to SchoolVid19!
-{% endblock %}
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-<link href="style.css" rel="stylesheet">
+{% extends "layout.html" %} {% block title %} Welcome to SchoolVid19! {% endblock %} {% block body %}
 
-{% block body %}
-<center><img src="/static/logo.png" class="b"></center>
-<p class="white">A @SchoolVid19 Initative.</p>
-<div class="container">
-        <div class="imagef">
-            <img src="/static/southkorea.jpg" id="side">
-            <img src="/static/covid.jpg" id="sidea">
-            <img src="/static/covid2.jpg" id="sidea">
-            <img src="/static/covid3.jpg" id="sidea">
-        </div>
-    
 
-    <h2 class="padded">Hello World! We are team SchoolVid19. A team of 2, to</h2>
-    <h2 id="d">be more precise, and we want to play our part for the</h2>
-    <h2 id="d">world during these challenging times, especially when</h2>
-    <h2 id="d">education is being affected across the globe. Keeping this</h2>
-    <h2 id="d">in mind, we developed this website to play our part for the</h2>
-    <h2 id="d">world. Also, big shoutout to @CarsonBurke for helping us so</h2>
-    <h2 id="d">much! Without futher ado, we proudly present our final project</h2>
-    <h2 class="z">for CS50x, SchoolVid19!</h2>
-    <h2></h2>
+<div class="templatediv">
+    <div class="center"><img src="/static/logo.png" class="center b"></div>
+    <div class="imagef">
+        <img src="/static/southkorea.jpg" id="side">
+        <img src="/static/covid.jpg" id="sidea">
+        <img src="/static/covid2.jpg" id="sidea">
+        <img src="/static/covid3.jpg" id="sidea">
+    </div>
+
+
+    <p class="padded">
+        Hello world. Welcome to SchoolVid19, where you can get new information about coronavirus cases and the state of learning n any country! Head over to
+        <a href="/countries">Countries</a> where you can look through the entire catalog of countries. <br /> and if you have suggestions or requests for the site, head over to
+        <a href="/contact">Contact</a> and send us an email
+    </p>
 </div>
 {% endblock %}
