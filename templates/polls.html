@@ -6,7 +6,9 @@
         <div class="center">
             <select class="templateselect">
             <option class="" disabled="true" selected="selected">Where do you live?</option>
-            <option value="{{ country }}">{{ Country }}</option>
+            {% for i in countries %}
+            <option value="{{ i[0] }}">{{ i[0] }}</option>
+            {% endfor %}
             </select>
 
             <select class="templateselect">

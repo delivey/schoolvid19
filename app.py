@@ -7,12 +7,22 @@ app = Flask(__name__, static_url_path='/static')
 @app.route("/")
 def index():
     return render_template("index.html")
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-@app.route("/polls")
+
+@app.route("/polls", methods=["GET", "POST"])
 def polls():
-    return render_template("polls.html")
+    if request.method == "POST":
+        return redirect("/")
+    else:
+        connection = sqlite3.connect('countries.db') # connects to db
+        db = connection.cursor() # creates the cursor for db connection
+
+        countries = db.execute("SELECT name FROM stats").fetchall()
+
+        return render_template("polls.html", countries=countries)
 
 
 @app.route("/country/<cnt>")
