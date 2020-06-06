@@ -22,27 +22,30 @@ def polls():
         country = request.form.get("country")
         rating = request.form.get("rating")
         tools = request.form.get("tools")
-
-        print(f"BROOOOOOOO COUNTRYYYYYYYYY: {country}")
-
-        try: 
-            cRating = db.execute("SELECT rating FROM stats WHERE name=(?)", (country,)).fetchone()[0]
-            nRating = int((int(cRating) + int(rating)) / 2)
-        except:
-            nRating = "unknown"
-
+            
         try: 
             cTools = db.execute("SELECT learning_tools FROM stats WHERE name=(?)", (country,)).fetchone()[0]
             if tools not in cTools:
                 nTools = cTools + ', ' + tools
+            else:
+                nTools = tools
         except:
+
             nTools = tools
 
-        db.execute("UPDATE stats SET rating=(?), learning_tools = (?) WHERE name=(?)", (nRating, nTools, country))
+        try: 
+            cRating = db.execute("SELECT rating FROM stats WHERE name=(?)", (country,)).fetchone()[0]
+            nRating = int((int(cRating) + int(rating)) / 2)
 
-        connection.commit()
+        except:
 
-        return redirect(f"/country/{country}")
+            nRating = rating
+            
+            db.execute("UPDATE stats SET rating=(?), learning_tools = (?) WHERE name=(?)", (nRating, nTools, country))
+
+            connection.commit()
+
+            return redirect(f"/country/{country}")
     else:
         connection = sqlite3.connect('countries.db') # connects to db
         db = connection.cursor() # creates the cursor for db connection
@@ -68,7 +71,6 @@ def country(cnt):
         rating = db.execute("SELECT rating FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     except:
         rating = None
-
     connection.commit()
     return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd, tools=tools, rating=rating)
 
