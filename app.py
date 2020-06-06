@@ -15,7 +15,17 @@ def contact():
 @app.route("/polls", methods=["GET", "POST"])
 def polls():
     if request.method == "POST":
-        return redirect("/")
+
+        connection = sqlite3.connect('countries.db') # connects to db
+        db = connection.cursor() # creates the cursor for db connection
+
+        country = request.form.get("country")
+        rating = request.form.get("rating")
+        tools = request.form.get("tools")
+
+        db.execute("INSERT INTO stats (rating, tools) VALUES (?, ?) WHERE name=(?)", (rating, tools, country))
+
+        return redirect(f"/country/{country}")
     else:
         connection = sqlite3.connect('countries.db') # connects to db
         db = connection.cursor() # creates the cursor for db connection

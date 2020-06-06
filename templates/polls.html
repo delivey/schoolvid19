@@ -1,27 +1,28 @@
 {% extends "layout.html" %} {% block title %} Polls {% endblock %} {% block body %}
 
 <div class="templatediv">
-    <form action="">
+
+    <form action="/polls" method="POST">
 
         <div class="center">
-            <select class="templateselect">
+            <select name="country" class="templateselect">
             <option class="" disabled="true" selected="selected">Where do you live?</option>
             {% for i in countries %}
             <option value="{{ i[0] }}">{{ i[0] }}</option>
             {% endfor %}
             </select>
 
-            <select class="templateselect">
+            <select name="tools" class="templateselect">
                 <option class="" disabled="true" selected="selected">What educational tools are you using?</option>
                 <option value="teams">Microsoft Teams</option>
                 <option value="google">Google Classrooms</option>
-                <option value="3">We don't learn</option>
-                <option value="4">My Parents</option>
-                <option value="5">I live in US :P (no schooling)</option>
+                <option value="3">We aren't learning</option>
+                <option value="4">I am homeschooled </option>
+                <option value="5">We have to go to schools</option>
                 </select>
         </div>
         <div class="center">
-            <select class="templateselect">
+            <select name="rating" class="templateselect">
     <option disabled="true" selected="selected">Rate your countries schooling</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -32,6 +33,7 @@
 
             <button>Submit poll!</button>
         </div>
+        
     </form>
 </div>
 {% endblock %}
