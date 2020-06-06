@@ -37,6 +37,11 @@ def polls():
             cRating = db.execute("SELECT rating FROM stats WHERE name=(?)", (country,)).fetchone()[0]
             nRating = int((int(cRating) + int(rating)) / 2)
 
+            db.execute("UPDATE stats SET rating=(?), learning_tools = (?) WHERE name=(?)", (nRating, nTools, country))
+
+            connection.commit()
+
+            return redirect(f"/country/{country}")
         except:
 
             nRating = rating
@@ -47,6 +52,7 @@ def polls():
 
             return redirect(f"/country/{country}")
     else:
+
         connection = sqlite3.connect('countries.db') # connects to db
         db = connection.cursor() # creates the cursor for db connection
 
@@ -55,24 +61,25 @@ def polls():
         return render_template("polls.html", countries=countries)
 
 
-@app.route("/country/<cnt>")
+@app.route("/country/<cnt>", methods=["GET"])
 def country(cnt):
-    connection = sqlite3.connect('countries.db') # connects to db
-    db = connection.cursor() # creates the cursor for db connection
-    status = db.execute("SELECT status FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
-    cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
-    timeUpd = db.execute("SELECT time_updated FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
-    try: 
-        tools = db.execute("SELECT learning_tools FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
-    except:
-        tools = None
-    
-    try: 
-        rating = db.execute("SELECT rating FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
-    except:
-        rating = None
-    connection.commit()
-    return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd, tools=tools, rating=rating)
+    if request.method == "GET":
+        connection = sqlite3.connect('countries.db') # connects to db
+        db = connection.cursor() # creates the cursor for db connection
+        status = db.execute("SELECT status FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        timeUpd = db.execute("SELECT time_updated FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        try: 
+            tools = db.execute("SELECT learning_tools FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        except:
+            tools = None
+        
+        try: 
+            rating = db.execute("SELECT rating FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        except:
+            rating = None
+        connection.commit()
+        return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd, tools=tools, rating=rating)
 
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
