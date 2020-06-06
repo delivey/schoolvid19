@@ -23,17 +23,24 @@ def polls():
         rating = request.form.get("rating")
         tools = request.form.get("tools")
 
+        print(f"BROOOOOOOO COUNTRYYYYYYYYY: {country}")
+
         try: 
             cRating = db.execute("SELECT rating FROM stats WHERE name=(?)", (country,)).fetchone()[0]
             nRating = int((int(cRating) + int(rating)) / 2)
         except:
             nRating = "unknown"
 
-        cTools = db.execute("SELECT tools_used FROM stats WHERE name=(?)", (country,)).fetchone()[0]
-        if tools not in cTools:
-            nTools = cTools + ', ' + tools
+        try: 
+            cTools = db.execute("SELECT learning_tools FROM stats WHERE name=(?)", (country,)).fetchone()[0]
+            if tools not in cTools:
+                nTools = cTools + ', ' + tools
+        except:
+            nTools = tools
 
-        db.execute("UPDATE stats SET rating=(?), tools_used = (?) WHERE name=(?)", (nRating, nTools, country))
+        db.execute("UPDATE stats SET rating=(?), learning_tools = (?) WHERE name=(?)", (nRating, nTools, country))
+
+        connection.commit()
 
         return redirect(f"/country/{country}")
     else:
@@ -53,7 +60,7 @@ def country(cnt):
     cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     timeUpd = db.execute("SELECT time_updated FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     try: 
-        tools = db.execute("SELECT tools_used FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+        tools = db.execute("SELECT learning_tools FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     except:
         tools = None
     
