@@ -23,7 +23,17 @@ def polls():
         rating = request.form.get("rating")
         tools = request.form.get("tools")
 
-        db.execute("INSERT INTO stats (rating, tools) VALUES (?, ?) WHERE name=(?)", (rating, tools, country))
+        try: 
+            cRating = db.execute("SELECT rating FROM stats WHERE name=(?)", (country,)).fetchone()[0]
+            nRating = int((int(cRating) + int(rating)) / 2)
+        except:
+            nRating = "unknown"
+
+        cTools = db.execute("SELECT tools_used FROM stats WHERE name=(?)", (country,)).fetchone()[0]
+        if tools not in cTools:
+            nTools = cTools + ', ' + tools
+
+        db.execute("UPDATE stats SET rating=(?), tools_used = (?) WHERE name=(?)", (nRating, nTools, country))
 
         return redirect(f"/country/{country}")
     else:
@@ -42,8 +52,18 @@ def country(cnt):
     status = db.execute("SELECT status FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     cases = db.execute("SELECT cases FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
     timeUpd = db.execute("SELECT time_updated FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+    try: 
+        tools = db.execute("SELECT tools_used FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+    except:
+        tools = None
+    
+    try: 
+        rating = db.execute("SELECT rating FROM stats WHERE name LIKE ?", ('%'+cnt+'%',)).fetchall()[0]
+    except:
+        rating = None
+
     connection.commit()
-    return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd)
+    return render_template("country.html", cnt=cnt, status=status, cases=cases, timeUpd=timeUpd, tools=tools, rating=rating)
 
 @app.route("/countries", methods=["GET", "POST"])
 def countries():
