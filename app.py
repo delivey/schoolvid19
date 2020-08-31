@@ -100,7 +100,20 @@ def countries():
 def case_updating():
     connection = sqlite3.connect('countries.db') # connects to db
     db = connection.cursor() # creates the cursor for db connection
-    with open('WHO-COVID-19-global-data.csv', newline='') as csvFile: # link for file https://covid19.who.int/info
+
+    filename = "WHO-COVID-19-global-data.csv"
+
+    data_url = "https://covid19.who.int/WHO-COVID-19-global-data.csv"
+    data = requests.get(data_url, allow_redirects=True)
+
+    try:
+        os.remove(filename)
+    except FileNotFoundError:
+        pass
+
+    open(filename, 'wb').write(data.content)
+
+    with open(filename, newline='') as csvFile: # link for file https://covid19.who.int/info
         reader = csv.reader(csvFile)
         for row in reader:
             lastDate = row[0]
