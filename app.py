@@ -1,6 +1,8 @@
 from flask import Flask, redirect, render_template, request
 import sqlite3
 import csv
+import requests
+import os
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -114,7 +116,20 @@ def case_updating():
 def status_updating():
     connection = sqlite3.connect('countries.db') # connects to db
     db = connection.cursor() # creates the cursor for db connection
-    with open('covid_impact_education.csv', newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
+
+    filename = "covid_impact_education.csv"
+
+    data_url = "https://en.unesco.org/sites/default/files/covid_impact_education.csv"
+    data = requests.get(data_url, allow_redirects=True)
+
+    try:
+        os.remove(filename)
+    except FileNotFoundError:
+        pass
+
+    open(filename, 'wb').write(data.content)
+
+    with open(filename, newline='') as csvFile: # link for file https://en.unesco.org/covid19/educationresponse
         reader = csv.reader(csvFile)
         for row in reader:
             countryName = row[2]
