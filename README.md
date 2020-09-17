@@ -10,6 +10,6 @@ schoolvid19 is a tracker for schools during the covid-19 pandemic made by @abhis
 
 note: if the css hasn't rendered hit `CTRL + SHIFT + R`, the website's cache will be deleted and the styling should work.
 <br></br>
-We have now published our website! Go to the link above and click on it, there, you can find the entire website.
+We have now published our website! Go to the link above and click on it, and there, you can find the entire website.
 <br></br>
 <h3>Enjoy!</h3>
